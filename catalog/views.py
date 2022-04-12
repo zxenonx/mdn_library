@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import Book, Author, BookInstance, Genre
 
+from django.views import generic
+
 # Create your views here.
 
 
@@ -26,8 +28,17 @@ def index(request):
         "num_instances_available": num_instances_available,
         "num_authors": num_authors,
         "num_genres": num_genres,
-        "num_books_filtered": num_books_filtered
+        "num_books_filtered": num_books_filtered,
     }
 
     # Render the HTML template index.html with the data in the context variable
     return render(request, "index.html", context=context)
+
+
+class BookListView(generic.ListView):
+    model = Book
+    paginate_by = 5
+
+https://consider.com/boards/co/manatal?skills=Django
+class BookDetailView(generic.DetailView):
+    model = Book
