@@ -39,6 +39,15 @@ class BookListView(generic.ListView):
     model = Book
     paginate_by = 5
 
-https://consider.com/boards/co/manatal?skills=Django
+
 class BookDetailView(generic.DetailView):
     model = Book
+
+
+class AuthorListView(generic.ListView):
+    model = Author
+    paginate_by = 5
+
+
+class AuthorDetailView(generic.DetailView):
+    model = Author
